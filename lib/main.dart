@@ -28,12 +28,13 @@ class MyApp extends StatelessWidget {
           title: '',
           theme: Apptheme().lightTheme,
           darkTheme: Apptheme().darkTheme,
-          themeMode: ThemeMode.dark,
+          themeMode: ThemeMode.light,
           translations: TranslationService(),
           locale: const Locale('en', 'US'),
           fallbackLocale: const Locale('en', 'US'),
           getPages: getRouter,
           initialRoute: '/',
+          defaultTransition: Transition.cupertino,
         );
       },
     );

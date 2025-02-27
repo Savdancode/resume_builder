@@ -23,7 +23,7 @@ class TempleteService {
                       fontSize: 24, fontWeight: pw.FontWeight.bold)),
               pw.SizedBox(height: 10),
               pw.Text("Generated using Flutter",
-                  style: pw.TextStyle(fontSize: 16)),
+                  style: const pw.TextStyle(fontSize: 16)),
               pw.SizedBox(height: 20),
               pw.Container(
                 padding: const pw.EdgeInsets.all(10),

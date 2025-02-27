@@ -7,4 +7,6 @@ class StrRes {
   static String get treding => 'treding'.tr;
   static String get more => 'more'.tr;
   static String get tryNow => 'try_now'.tr;
+  static String get firstName => 'first_name'.tr;
+  static String get lastName => 'last_name'.tr;
 }

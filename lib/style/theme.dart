@@ -13,6 +13,9 @@ class Apptheme {
         color: Colors.white,
         fontSize: 18,
       ),
+      iconTheme: const IconThemeData(
+        color: Colors.white,
+      ),
     ),
     iconTheme: const IconThemeData(color: Colors.white),
     colorScheme: ColorScheme.dark(
@@ -44,6 +47,9 @@ class Apptheme {
       elevation: 0.2,
       color: HexColor('#ffffff'),
       shadowColor: HexColor('#ffffff'),
+      iconTheme: const IconThemeData(
+        color: Colors.black,
+      ),
       titleTextStyle: const TextStyle(
         color: Colors.black,
         fontSize: 18,

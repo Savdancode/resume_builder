@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:resume_maker/res/img_res.dart';
 import 'package:resume_maker/res/str_res.dart';
 import 'package:resume_maker/service/templete/templete.dart';
@@ -71,8 +72,11 @@ class Trending extends StatelessWidget {
                         LoadingDialog.show();
                         Future.delayed(const Duration(seconds: 5), () {
                           LoadingDialog.hide();
+                        }).then((value) {
+                          Get.toNamed(
+                            "/templete",
+                          );
                         });
-                        var result = await TempleteService.savePDF();
                       },
                     ),
                   ],
