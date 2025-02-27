@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:resume_maker/lang/app_lang.dart';
 import 'package:resume_maker/route/get_router.dart';
 import 'package:resume_maker/style/theme.dart';

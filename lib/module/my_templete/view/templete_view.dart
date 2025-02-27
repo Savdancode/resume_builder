@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:resume_maker/res/img_res.dart';
-import 'package:resume_maker/res/str_res.dart';
 import 'package:resume_maker/style/color.dart';
 import 'package:resume_maker/util/extension/spacing.dart';
 import 'package:resume_maker/widget/images/svg_asset.dart';
@@ -67,9 +66,9 @@ class TempleteView extends StatelessWidget {
               Expanded(
                 child: Column(
                   children: [
-                    CustomTextForm(),
+                    const CustomTextForm(),
                     10.verticalGap,
-                    CustomTextForm()
+                    const CustomTextForm()
                   ],
                 ),
               ),

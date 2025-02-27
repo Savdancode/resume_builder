@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:resume_maker/res/img_res.dart';
 import 'package:resume_maker/res/str_res.dart';
-import 'package:resume_maker/service/templete/templete.dart';
 import 'package:resume_maker/style/color.dart';
 import 'package:resume_maker/style/style.dart';
 import 'package:resume_maker/util/extension/append_str_on_text.dart';
