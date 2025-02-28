@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:resume_maker/controller/templete/controller/templete_controller.dart';
+import 'package:resume_maker/model/templete/templete_data_model.dart';
 import 'package:resume_maker/res/img_res.dart';
 import 'package:resume_maker/res/str_res.dart';
+import 'package:resume_maker/service/templete/templete.dart';
 import 'package:resume_maker/style/color.dart';
 import 'package:resume_maker/style/style.dart';
 import 'package:resume_maker/util/extension/append_str_on_text.dart';
@@ -13,7 +16,7 @@ import 'package:resume_maker/widget/dialog/loading.dart';
 
 class Trending extends StatelessWidget {
   const Trending({super.key});
-
+  static final temcon = Get.find<TempleteController>();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -71,9 +74,12 @@ class Trending extends StatelessWidget {
                         LoadingDialog.show();
                         Future.delayed(const Duration(seconds: 5), () {
                           LoadingDialog.hide();
-                        }).then((value) {
-                          Get.toNamed(
-                            "/templete",
+                        }).then((value) async {
+                          TempleteService.savePDF(
+                            TempleteDataModel(
+                                firstName: "firstName",
+                                lastName: "lastName",
+                                position: "position"),
                           );
                         });
                       },

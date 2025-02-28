@@ -7,13 +7,8 @@ import 'dart:io';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 
-import '../../model/templete/templete_data_model.dart';
-
-class TempleteService {
-  static Future<Uint8List> generatePDF(
-      {required TempleteDataModel resumeDetails}) async {
-    final pdf = pw.Document();
-
+class ResumeTempleteService {
+  static Future<Uint8List> generatePDF({required pw.Document pdf}) async {
     pdf.addPage(
       pw.Page(
         pageFormat: PdfPageFormat.a4,
@@ -21,18 +16,12 @@ class TempleteService {
           return pw.Column(
             crossAxisAlignment: pw.CrossAxisAlignment.start,
             children: [
-              pw.Container(
-                height: 50,
-                color: PdfColor.fromHex("#2e2d2d"),
-                width: 50,
-              ),
-              pw.SizedBox(
-                height: 10,
-              ),
-              pw.Text(
-                "Generated using Flutter",
-                style: const pw.TextStyle(fontSize: 16),
-              ),
+              pw.Text("Resume Maker",
+                  style: pw.TextStyle(
+                      fontSize: 24, fontWeight: pw.FontWeight.bold)),
+              pw.SizedBox(height: 10),
+              pw.Text("Generated using Flutter",
+                  style: const pw.TextStyle(fontSize: 16)),
               pw.SizedBox(height: 20),
               pw.Container(
                 padding: const pw.EdgeInsets.all(10),
@@ -52,8 +41,8 @@ class TempleteService {
   }
 
   /// **Save the PDF as a file**
-  static Future<void> savePDF(TempleteDataModel resumeDetails) async {
-    final bytes = await generatePDF(resumeDetails: resumeDetails);
+  static Future<void> savePDF({required pw.Document pdf}) async {
+    final bytes = await generatePDF(pdf: pdf);
     final directory = await getApplicationDocumentsDirectory();
     final file = File('${directory.path}/resume.pdf');
     await file.writeAsBytes(bytes);
@@ -61,8 +50,8 @@ class TempleteService {
     print("PDF saved to ${file.path}");
   }
 
-  /// **Print or Share the PDF**
-  // static Future<void> printPDF(BuildContext context) async {
+  // /// **Print or Share the PDF**
+  // static Future<void> printPDF(BuildContext context,) async {
   //   final bytes = await generatePDF();
   //   await Printing.layoutPdf(onLayout: (PdfPageFormat format) async => bytes);
   // }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:resume_maker/controller/templete/controller/templete_controller.dart';
 import 'package:resume_maker/res/img_res.dart';
+import 'package:resume_maker/res/str_res.dart';
 import 'package:resume_maker/style/color.dart';
 import 'package:resume_maker/util/extension/spacing.dart';
 import 'package:resume_maker/widget/images/svg_asset.dart';
@@ -9,6 +11,8 @@ import 'package:resume_maker/widget/text_field/custom_text_form.dart';
 class TempleteView extends StatelessWidget {
   const TempleteView({super.key});
 
+  static final TempleteController templateController =
+      Get.find<TempleteController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,20 +24,21 @@ class TempleteView extends StatelessWidget {
         children: <Widget>[
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Stack(
                 alignment: Alignment.topRight,
                 children: [
                   Container(
                     alignment: Alignment.center,
-                    width: Get.width * 0.3,
-                    height: Get.width * 0.3,
+                    width: Get.width * 0.25,
+                    height: Get.width * 0.25,
                     decoration: BoxDecoration(
                       color: AppColors.scaffoldBackgroundColor,
                       shape: BoxShape.circle,
                       border: Border.all(
                         color: AppColors.tertiaryColor,
-                        width: 3.0, // Border width
+                        width: 1.0, // Border width
                       ),
                       //image:
                     ),
@@ -47,7 +52,7 @@ class TempleteView extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    right: 15,
+                    right: 10,
                     child: Container(
                       padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
@@ -56,7 +61,7 @@ class TempleteView extends StatelessWidget {
                       ),
                       child: const Icon(
                         Icons.edit,
-                        size: 30,
+                        size: 20,
                       ),
                     ),
                   )
@@ -65,15 +70,36 @@ class TempleteView extends StatelessWidget {
               10.horizontalGap,
               Expanded(
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    const CustomTextForm(),
+                    CustomTextForm(
+                      hint: StrRes.firstName,
+                      useLabel: true,
+                      controller: templateController.txtFirstName,
+                    ),
                     10.verticalGap,
-                    const CustomTextForm()
+                    CustomTextForm(
+                      hint: StrRes.lastName,
+                      useLabel: true,
+                      controller: templateController.txtLastName,
+                    )
                   ],
                 ),
               ),
             ],
-          )
+          ),
+          CustomTextForm(
+            controller: templateController.txtPosition,
+            title: StrRes.position,
+            hint: StrRes.position,
+            boxConstraints: const BoxConstraints(
+              minHeight: 40,
+              maxHeight: 50,
+              maxWidth: 300,
+              minWidth: 200,
+            ),
+          ),
         ],
       ),
     );

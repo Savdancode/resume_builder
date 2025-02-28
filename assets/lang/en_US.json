@@ -1,10 +1,15 @@
 {
     "home": "Home",
-    "templete": "Hemplete",
+    "templete": "Templete",
     "profile": "Profile",
     "treding": "Treding",
     "more": "More",
     "try_now": "Try Now",
     "first_name": "First Name",
-    "last_name": "Last Name"
+    "last_name": "Last Name",
+    "position": "Position",
+    "experience": "Experience",
+    "company": "company",
+    "skills": "Skill",
+    "education": "Education"
 }

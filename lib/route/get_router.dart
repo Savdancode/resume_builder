@@ -1,5 +1,6 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:resume_maker/controller/home/binding/landing_binding.dart';
+import 'package:resume_maker/controller/templete/binding/templete_binding.dart';
 import 'package:resume_maker/module/home/view/home_view.dart';
 import 'package:resume_maker/module/home/view/landing_view.dart';
 import 'package:resume_maker/module/my_templete/view/templete_view.dart';
@@ -22,6 +23,6 @@ var getRouter = [
   GetPage(
     name: AppRoute.templete,
     page: () => const TempleteView(),
-    binding: HomeBinding(),
+    binding: TempleteBinding(),
   ),
 ];

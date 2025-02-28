@@ -9,4 +9,9 @@ class StrRes {
   static String get tryNow => 'try_now'.tr;
   static String get firstName => 'first_name'.tr;
   static String get lastName => 'last_name'.tr;
+  static String get position => 'position'.tr;
+  static String get experience => 'experience'.tr;
+  static String get company => 'company'.tr;
+  static String get skills => 'skills'.tr;
+  static String get education => 'education'.tr;
 }

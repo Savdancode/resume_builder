@@ -7,6 +7,7 @@ class Apptheme {
     primaryColor: HexColor('#2e2d2d'),
     scaffoldBackgroundColor: HexColor('#2e2d2d'),
     appBarTheme: AppBarTheme(
+      titleSpacing: 10,
       color: HexColor("#141414"),
       elevation: 5,
       titleTextStyle: const TextStyle(
@@ -44,6 +45,7 @@ class Apptheme {
       color: Colors.black87,
     ),
     appBarTheme: AppBarTheme(
+      titleSpacing: 10,
       elevation: 0.2,
       color: HexColor('#ffffff'),
       shadowColor: HexColor('#ffffff'),

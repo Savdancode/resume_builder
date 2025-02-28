@@ -22,18 +22,23 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
-        return GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: '',
-          theme: Apptheme().lightTheme,
-          darkTheme: Apptheme().darkTheme,
-          themeMode: ThemeMode.light,
-          translations: TranslationService(),
-          locale: const Locale('en', 'US'),
-          fallbackLocale: const Locale('en', 'US'),
-          getPages: getRouter,
-          initialRoute: '/',
-          defaultTransition: Transition.cupertino,
+        return GestureDetector(
+          onTap: () {
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
+          child: GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: '',
+            theme: Apptheme().lightTheme,
+            darkTheme: Apptheme().darkTheme,
+            themeMode: ThemeMode.light,
+            translations: TranslationService(),
+            locale: const Locale('en', 'US'),
+            fallbackLocale: const Locale('en', 'US'),
+            getPages: getRouter,
+            initialRoute: '/',
+            defaultTransition: Transition.cupertino,
+          ),
         );
       },
     );
