@@ -11,5 +11,7 @@
     "experience": "Experience",
     "company": "company",
     "skills": "Skill",
-    "education": "Education"
+    "education": "Education",
+    "build_now": "Build Now",
+    "our_app_need_to_access_photo": "Our need to access your photo to upload resume profile"
 }

@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:resume_maker/res/str_res.dart';
+import 'package:resume_maker/widget/alert/alert_snack_bar.dart';
 
 class LandingController extends GetxController {
   @override
@@ -27,13 +29,18 @@ class LandingController extends GetxController {
     }
   }
 
-  static Future<bool> _requestPermission() async {
-    var status = await Permission.storage.request();
-    if (status.isGranted) {
-      return true;
-    } else {
-      print("Storage permission denied.");
-      return false;
+  static Future<void> _requestPermission() async {
+    PermissionStatus result = PermissionStatus.denied;
+    if (GetPlatform.isIOS) {
+      result = await Permission.storage.request();
+    } else if (GetPlatform.isAndroid) {
+      result = await Permission.photos.request();
+    }
+
+    if (result.isDenied || result.isPermanentlyDenied) {
+      alertSnackbar(
+        message: StrRes.ourNeedToAccessYourPhotoToUploadResume,
+      );
     }
   }
 }

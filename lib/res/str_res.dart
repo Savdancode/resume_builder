@@ -14,4 +14,7 @@ class StrRes {
   static String get company => 'company'.tr;
   static String get skills => 'skills'.tr;
   static String get education => 'education'.tr;
+  static String get buildNow => 'build_now'.tr;
+  static String get ourNeedToAccessYourPhotoToUploadResume =>
+      "our_app_need_to_access_photo".tr;
 }

@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final botToastBuilder = BotToastInit();
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
@@ -38,6 +40,15 @@ class MyApp extends StatelessWidget {
             getPages: getRouter,
             initialRoute: '/',
             defaultTransition: Transition.cupertino,
+            builder: (BuildContext context, child) {
+              child = botToastBuilder(context, child);
+              return MediaQuery(
+                data: MediaQuery.of(context).copyWith(
+                  textScaler: TextScaler.noScaling,
+                ),
+                child: child,
+              );
+            },
           ),
         );
       },

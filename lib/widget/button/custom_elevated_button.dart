@@ -4,6 +4,7 @@ import 'package:resume_maker/util/extension/str_to_text.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final String title;
+  final TextStyle? titleStyle;
   final ButtonStyle? buttonStyleButton;
   final Function()? onPressed;
   const CustomElevatedButton({
@@ -11,6 +12,7 @@ class CustomElevatedButton extends StatelessWidget {
     this.title = 'title',
     this.buttonStyleButton,
     this.onPressed,
+    this.titleStyle,
   });
 
   @override
@@ -25,10 +27,11 @@ class CustomElevatedButton extends StatelessWidget {
           ),
       onPressed: onPressed,
       child: title.toText(
-        style: TextStyle(
-          fontSize: 12,
-          color: AppColors.txtColor,
-        ),
+        style: titleStyle ??
+            TextStyle(
+              fontSize: 12,
+              color: AppColors.txtColor,
+            ),
       ),
     );
   }

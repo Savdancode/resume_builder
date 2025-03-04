@@ -1,11 +1,9 @@
 import 'dart:typed_data';
-import 'package:flutter/material.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:pdf/pdf.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 import 'package:pdf/widgets.dart' as pw;
-import 'package:printing/printing.dart';
 
 class ResumeTempleteService {
   static Future<Uint8List> generatePDF({required pw.Document pdf}) async {
@@ -47,7 +45,6 @@ class ResumeTempleteService {
     final file = File('${directory.path}/resume.pdf');
     await file.writeAsBytes(bytes);
     await OpenFilex.open(file.path);
-    print("PDF saved to ${file.path}");
   }
 
   // /// **Print or Share the PDF**

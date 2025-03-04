@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:resume_maker/res/str_res.dart';
 import 'package:resume_maker/util/extension/spacing.dart';
 
 import '../../style/color.dart';

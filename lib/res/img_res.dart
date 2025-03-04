@@ -10,4 +10,5 @@ class ImgRes {
   static const icProfile = '$_svgDir/ic_profile.svg';
   //img
   static const cv0 = '$_imgDir/cv_0.png';
+  static const icErrorImage = '$_imgDir/ic_error_image.png';
 }

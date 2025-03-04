@@ -1,11 +1,15 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:resume_maker/controller/templete/controller/templete_controller.dart';
 import 'package:resume_maker/res/img_res.dart';
 import 'package:resume_maker/res/str_res.dart';
+import 'package:resume_maker/service/templete/templete.dart';
 import 'package:resume_maker/style/color.dart';
 import 'package:resume_maker/util/extension/spacing.dart';
-import 'package:resume_maker/widget/images/svg_asset.dart';
+import 'package:resume_maker/widget/button/custom_elevated_button.dart';
 import 'package:resume_maker/widget/text_field/custom_text_form.dart';
 
 class TempleteView extends StatelessWidget {
@@ -29,25 +33,34 @@ class TempleteView extends StatelessWidget {
               Stack(
                 alignment: Alignment.topRight,
                 children: [
-                  Container(
-                    alignment: Alignment.center,
-                    width: Get.width * 0.25,
-                    height: Get.width * 0.25,
-                    decoration: BoxDecoration(
-                      color: AppColors.scaffoldBackgroundColor,
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: AppColors.tertiaryColor,
-                        width: 1.0, // Border width
-                      ),
-                      //image:
-                    ),
-                    child: SizedBox(
-                      child: SvgAsset(
-                        assetName: ImgRes.icError,
-                        color: AppColors.iconColor,
-                        widget: 70,
-                        height: 70,
+                  GestureDetector(
+                    onTap: templateController.pickImage,
+                    child: Obx(
+                      () => Container(
+                        alignment: Alignment.center,
+                        width: Get.width * 0.25,
+                        height: Get.width * 0.25,
+                        decoration: BoxDecoration(
+                          color: AppColors.scaffoldBackgroundColor,
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: AppColors.tertiaryColor,
+                            width: 1.0, // Border width
+                          ),
+                          image: DecorationImage(
+                            image: templateController.image.value == null
+                                ? const AssetImage(
+                                    ImgRes.icErrorImage,
+                                  )
+                                : FileImage(
+                                    File(
+                                      templateController.image.value!.path,
+                                    ), // Convert XFile to File
+                                  ),
+                            fit: BoxFit.cover,
+                          ),
+                          //image:
+                        ),
                       ),
                     ),
                   ),
@@ -101,6 +114,23 @@ class TempleteView extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: Container(
+        margin: const EdgeInsets.all(10),
+        height: 40.h,
+        child: CustomElevatedButton(
+          titleStyle: const TextStyle(
+            fontSize: 16,
+            color: Colors.white,
+          ),
+          title: StrRes.buildNow,
+          onPressed: () async {
+            await templateController.generateData();
+            TempleteService.savePDF(
+              templateController.resumeDetails,
+            );
+          },
+        ),
       ),
     );
   }

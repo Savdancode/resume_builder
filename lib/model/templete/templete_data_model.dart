@@ -8,13 +8,15 @@ class TempleteDataModel {
       tellPhone = "",
       email = "",
       address = "",
-      website = "";
+      website = "",
+      profileImagePath = "";
   List<SkillModel> listSkills = [];
   List<EducationModel> listEducation = [];
   TempleteDataModel(
       {required this.firstName,
       required this.lastName,
-      required this.position});
+      required this.position,
+      required this.profileImagePath});
 }
 
 class SkillModel {
